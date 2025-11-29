@@ -1,0 +1,82 @@
+﻿@using Blog.Domain.Core.Dtos.PostDtos
+@model ShowUpdatePostDto
+@{
+    Layout = "";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="d-flex justify-content-center align-items-center vh-100"
+     style="background-color: #3b4a6b;">
+
+    <div class="card p-4"
+         style="width: 450px; background-color: #526180; border-radius: 12px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.4);">
+
+        <h2 class="text-center text-white mb-4">ویرایش پست</h2>
+
+        <form asp-action="Update" method="post" enctype="multipart/form-data">
+
+            <input type="hidden" name="Id" value="@Model.Id" />
+
+            <div class="mb-3">
+                <label class="form-label text-white">عنوان</label>
+                <input type="text"
+                       name="Title"
+                       class="form-control bg-light text-dark border-0"
+                       placeholder="@Model.Title" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-white">توضیحات</label>
+                <textarea name="Description"
+                          class="form-control bg-light text-dark border-0"
+                          rows="4"
+                          placeholder="@Model.Description"></textarea>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.ProfileImage))
+            {
+                <div class="text-center mb-3">
+                    <img src="@Model.ProfileImage"
+                         style="width: 100px; height: 100px; border-radius: 50%;
+                                    object-fit: cover; border: 3px solid #ff8c42;" />
+                </div>
+            }
+
+            <div class="mb-3">
+                <label class="form-label text-white">تصویر جدید (اختیاری)</label>
+                <input type="file" name="ProfileImage" class="form-control bg-light border-0" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-white">دسته‌بندی</label>
+
+                <select name="CategoryId" class="form-select bg-light border-0">
+                    <option value="">یک دسته‌بندی انتخاب کنید</option>
+
+                    @foreach (var cat in ViewBag.Categories)
+                    {
+                        <option value="@cat.Id">@cat.Title</option>
+                    }
+                </select>
+
+                <small class="text-warning">دسته فعلی: @Model.CategoryTitle</small>
+            </div>
+
+            <button type="submit"
+                    class="btn w-100"
+                    style="background-color: #ff8c42; color: #fff;">
+                ثبت تغییرات
+            </button>
+        </form>
+        <div id="message-box" class="mt-4 text-center text-sm">
+            <div style="color:red">@TempData["Error"]</div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+

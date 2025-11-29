@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FrameWork\Blog.FrameWork\Blog.FrameWork.csproj" />
+    <ProjectReference Include="..\..\01.Domain\Services\Blog.Domain.AppServices\Blog.Domain.AppServices.csproj" />
+    <ProjectReference Include="..\..\01.Domain\Services\Blog.Domain.Services\Blog.Domain.Services.csproj" />
+    <ProjectReference Include="..\..\02.Infrastracture\DataAccess\Blog.Infra.DA\Blog.Infra.DA.csproj" />
+    <ProjectReference Include="..\..\02.Infrastracture\Db\Blog.Infra.Db\Blog.Infra.Db.csproj" />
+  </ItemGroup>
+
+</Project>
