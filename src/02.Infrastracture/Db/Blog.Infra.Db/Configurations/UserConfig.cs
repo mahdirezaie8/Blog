@@ -16,6 +16,7 @@ namespace Blog.Infra.Db.Configurations
             builder.HasIndex(u => u.Username).IsUnique();
             builder.HasMany(u=>u.Categories).WithOne(c => c.User).HasForeignKey(c=>c.UserId).OnDelete(DeleteBehavior.Cascade);
             builder.HasMany(u => u.Posts).WithOne(p => p.User).HasForeignKey(p => p.UserId).OnDelete(DeleteBehavior.Restrict);
+            builder.HasMany(u => u.Comments).WithOne(c => c.User).HasForeignKey(c => c.UserId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

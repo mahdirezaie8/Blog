@@ -30,6 +30,9 @@ builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddScoped<IPostAppService, PostAppService>();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IFileAppService, FileAppService>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<ICommentAppService, CommentAppService>();
 
 var app = builder.Build();
 

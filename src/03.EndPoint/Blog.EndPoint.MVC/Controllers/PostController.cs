@@ -12,12 +12,16 @@ namespace Blog.EndPoint.MVC.Controllers
         private readonly IPostAppService postAppService;
         private readonly ICookieService cookieService;
         private readonly ICategoryAppService categoryAppService;
+        private readonly ICommentAppService commentAppService;
 
-        public PostController(IPostAppService PostAppService,ICookieService CookieService,ICategoryAppService CategoryAppService)
+        public PostController(IPostAppService PostAppService
+            ,ICookieService CookieService
+            ,ICategoryAppService CategoryAppService,ICommentAppService CommentAppService)
         {
             postAppService = PostAppService;
             cookieService = CookieService;
             categoryAppService = CategoryAppService;
+            commentAppService = CommentAppService;
         }
         public IActionResult Management()
         {
@@ -95,6 +99,8 @@ namespace Blog.EndPoint.MVC.Controllers
             var post=postAppService.GetPostUserById(id);
             if(post.IsSuccess)
             {
+                var comments = commentAppService.GetPostComment(id);
+                TempData["Comments"] = comments.Data;
                 return View(post.Data);
             }
             else

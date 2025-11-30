@@ -19,7 +19,6 @@ namespace Blog.EndPoint.MVC.Controllers
         {
             var userid = cookieService.GetUserId();
             var categories = categoryAppService.GetUserCategories(userid);
-            ViewBag.Error = categories.Message;
             return View(categories.Data);
         }
         public IActionResult Create()

@@ -14,9 +14,11 @@ namespace Blog.Infra.Db.AppDb
             modelBuilder.ApplyConfiguration(new UserConfig());
             modelBuilder.ApplyConfiguration(new CategoryConfig());
             modelBuilder.ApplyConfiguration(new PostConfig());
+            modelBuilder.ApplyConfiguration(new CommentConfig());
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }

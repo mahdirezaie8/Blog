@@ -1,5 +1,4 @@
 ﻿using Blog.Domain.Core.Data;
-using Blog.Domain.Core.Dtos.CategoryDtos;
 using Blog.Domain.Core.Dtos.PostDtos;
 using Blog.Domain.Core.Entities;
 using Blog.Infra.Db.AppDb;
@@ -39,7 +38,7 @@ namespace Blog.Infra.DA.Repositories
             }).ToList();
         }
         public void Delete(int id)
-        {
+        {           
             appDbContext.Posts
                 .Where(p=>p.Id==id).ExecuteDelete();
         }

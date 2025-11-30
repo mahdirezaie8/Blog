@@ -59,5 +59,11 @@ namespace Blog.EndPoint.MVC.Controllers
                 return View();
             }
         }
+        public IActionResult Logout()
+        {
+            cookieService.Delete("Id");
+            cookieService.Delete("Username");
+            return RedirectToAction("Login");
+        }
     }
 }

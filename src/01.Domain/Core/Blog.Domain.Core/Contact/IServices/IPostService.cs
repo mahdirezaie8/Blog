@@ -1,8 +1,5 @@
-﻿using Blog.Domain.Core.Contact.IAppServices;
-using Blog.Domain.Core.Data;
-using Blog.Domain.Core.Dtos;
+﻿using Blog.Domain.Core.Dtos;
 using Blog.Domain.Core.Dtos.PostDtos;
-using Blog.Domain.Core.Entities;
 
 namespace Blog.Domain.Core.Contact.IServices
 {

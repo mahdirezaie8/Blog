@@ -128,10 +128,12 @@
 								<td>@post.CreateAt.ToPersianDate()</td>
 								<td>
 									<a href="/Post/Update/@post.Id" class="btn btn-warning btn-sm">ویرایش</a>
-									<a href="/Get/Delete/@post.Id" class="btn btn-danger btn-sm"
+									<a asp-controller="Post" asp-action="Delete" asp-route-id="@post.Id"
+									   class="btn btn-danger btn-sm"
 									   onclick="return confirm('آیا از حذف این پست مطمئن هستید؟');">
 										حذف
 									</a>
+
 								</td>
 							</tr>
 							row++;
