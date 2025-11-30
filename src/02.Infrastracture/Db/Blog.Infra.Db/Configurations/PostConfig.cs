@@ -15,8 +15,8 @@ namespace Blog.Infra.Db.Configurations
         {
             builder.Property(p => p.Title).IsRequired().HasMaxLength(400);
             builder.Property(p => p.Description).IsRequired().HasMaxLength(800);
-            builder.HasOne(p=>p.User).WithMany(u=>u.Posts).OnDelete(DeleteBehavior.Restrict);
-            builder.HasOne(p => p.Category).WithMany(c=>c.Posts).OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(p=>p.User).WithMany(u=>u.Posts);
+            builder.HasOne(p => p.Category).WithMany(c=>c.Posts);
         }
     }
 }

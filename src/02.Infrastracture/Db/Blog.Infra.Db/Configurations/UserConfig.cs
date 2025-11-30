@@ -15,7 +15,7 @@ namespace Blog.Infra.Db.Configurations
             builder.Property(u => u.PhoneNumber).HasMaxLength(15);
             builder.HasIndex(u => u.Username).IsUnique();
             builder.HasMany(u=>u.Categories).WithOne(c => c.User).HasForeignKey(c=>c.UserId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasMany(u => u.Posts).WithOne(p => p.User).HasForeignKey(p => p.UserId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(u => u.Posts).WithOne(p => p.User).HasForeignKey(p => p.UserId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

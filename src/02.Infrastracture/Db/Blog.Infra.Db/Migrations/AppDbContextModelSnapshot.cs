@@ -129,7 +129,7 @@ namespace Blog.Infra.Db.Migrations
                     b.HasOne("Blog.Domain.Core.Entities.User", "User")
                         .WithMany("Categories")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -140,7 +140,7 @@ namespace Blog.Infra.Db.Migrations
                     b.HasOne("Blog.Domain.Core.Entities.Category", "Category")
                         .WithMany("Posts")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Blog.Domain.Core.Entities.User", "User")

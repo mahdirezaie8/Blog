@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blog.Infra.Db.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251127123328_addEP")]
-    partial class addEP
+    [Migration("20251130100140_update")]
+    partial class update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,7 +132,7 @@ namespace Blog.Infra.Db.Migrations
                     b.HasOne("Blog.Domain.Core.Entities.User", "User")
                         .WithMany("Categories")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -143,7 +143,7 @@ namespace Blog.Infra.Db.Migrations
                     b.HasOne("Blog.Domain.Core.Entities.Category", "Category")
                         .WithMany("Posts")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Blog.Domain.Core.Entities.User", "User")
